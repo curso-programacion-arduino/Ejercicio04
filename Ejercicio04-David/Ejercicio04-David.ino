@@ -15,10 +15,10 @@ void setup() {
   Serial.println("Por favor usuario mueve el potenciometro");
   miservo.attach(PIN_SERVO);
   estadoInicial = analogRead(PIN_POT);
-  estadoActual = analogRead(PIN_POT);
 }
 
 void loop() {
+  estadoActual = analogRead(PIN_POT);
   //leo y guardo el valor registrado por el pin del potenciometro
   if (estadoInicial != estadoActual) {
     int val = analogRead(PIN_POT);
@@ -28,7 +28,6 @@ void loop() {
     miservo.write(val);
     Serial.println(val);
     delay(15);
-    estadoInicial = estadoActual;
   }
-  estadoActual = analogRead(PIN_POT);
+  estadoInicial = estadoActual;
 }
